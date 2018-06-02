@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!--加上"user-scalable=no/"会使手机真正自适应，使页面到手机上时字体不会自动缩放。"device-width"设备宽度-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>myCanvas</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="//at.alicdn.com/t/font_650559_geuacjzbo98p8pvi.js"></script>
+    
+</head>
+<body>
+    <canvas id="canvas" width="300px" height="300px"></canvas>
+    <!--不要用css添加宽度高度样式，不要用css添加宽度高度样式，不要用css添加宽度高度样式重要的事情说三遍-->
+    <div class="actions" id="actions">
+        <svg class="icon" aria-hidden="true" id="brush">
+                <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" id="eraser">
+                <use xlink:href="#icon-eraser"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" id="clear">
+                <use xlink:href="#icon-clear"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true" id="download">
+                <use xlink:href="#icon-download"></use>
+        </svg>
+    </div>
+    <div class="colors">
+        <ol>
+            <li id="red"></li>
+            <li id="yellow"></li>
+            <li id="green"></li>
+            <li id="blue"></li>
+        </ol>
+    </div>
+    <div class="sizes">
+        <ol>
+            <li id="thin"></li>
+            <li id="thin2"></li>
+            <li id="thick"></li>
+            <li id="thick2"></li>
+        </ol>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>

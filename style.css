@@ -1,0 +1,102 @@
+    
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+ ol,li{
+     list-style: none;
+ }
+ *{
+    margin: 0;
+    padding: 0;
+ }
+body{
+    overflow: hidden;   /*解决在手机上页面会滚动的bug*/
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#canvas{
+    background:rgb(255, 255, 255);
+    display:block;
+}
+.actions{
+    position: fixed;  /*使元素脱离文档流，自己重新定位*/
+    top:0;
+    left:0;
+    padding:20px;
+
+}
+.actions svg{
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.3s;
+    margin: 4px;
+}
+.actives svg.activesvg{
+    fill:green;
+    transform: scale(2.2);
+}
+.colors{
+    position: fixed;
+    top: 70px;
+    left: 10px;
+}
+.colors ol li{
+    width: 20px;
+    height: 20px;
+    margin: 8px 6px;
+    border-radius: 50%;
+}
+.colors ol li#red{
+    background: red;
+}
+.colors ol li#yellow{
+    background: yellow;
+}
+
+.colors ol li#green{
+    background: green;
+}
+.colors ol li#blue{
+    background: blue;
+}
+.colors ol li.activecol{
+    border-top: 2px solid rgb(124, 123, 123);
+    width: 23px;
+    height: 23px;
+}
+.sizes{
+    position: fixed;
+    top: 70px;
+    right: 10px;
+}
+.sizes ol li{
+    margin: 20px 6px;
+}
+.sizes ol li#thin{
+    border-top: 2px solid black;
+    width: 16px;
+    height: 0;
+}
+.sizes ol li#thin2{
+    border-top: 4px solid black;
+    width: 16px;
+    height: 0;
+}
+.sizes ol li#thick{
+    border-top: 6px solid black;
+    width: 16px;
+    height: 0;
+}
+.sizes ol li#thick2{
+    border-top: 8px solid black;
+    width: 16px;
+    height: 0;
+}
+.sizes ol li.activesize{
+    width:30px;     
+
+}
