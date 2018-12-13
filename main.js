@@ -54,6 +54,10 @@ colors.onclick = function (e) {
   context.fillStyle = e.target.id
   addActive(e.target, colorList, "activecol")
 }
+changeColor.onchange = function(){
+  context.strokeStyle = this.value
+  context.fillStyle = this.value
+};
 
 // 画笔的粗细 
 var lineWidth;

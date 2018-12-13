@@ -16,7 +16,8 @@ body { overflow: hidden; position: fixed; top: 0; left: 0;}
 .colors ol li#yellow { background: yellow; }
 .colors ol li#green { background: green; }
 .colors ol li#blue {  background: blue; }
-.colors ol li.activecol{ border: 1px solid rgb(199, 197, 197); transform: scale(1.3);}
+.colors ol li.activecol { border: 1px solid rgb(199, 197, 197); transform: scale(1.3);}
+.colors input { width: 20px; height: 20px; margin: 0 6px; border-radius: 50%; }
 
 .sizes { position: fixed; top: 70px; right: 10px; }
 .sizes ol li {  margin: 20px 6px; }
