@@ -48,13 +48,13 @@ download.onclick = function () {
 }
 
 // 7  添加有颜色的画笔 注意classList中间的L不要小写
-var colorList = [red, yellow, green, blue]
+var colorList = [red, yellow, green, blue, change]
 colors.onclick = function (e) { 
   context.strokeStyle = e.target.id
   context.fillStyle = e.target.id
   addActive(e.target, colorList, "activecol")
 }
-changeColor.onchange = function(){
+change.onchange = function(){
   context.strokeStyle = this.value
   context.fillStyle = this.value
 };
