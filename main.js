@@ -165,7 +165,7 @@ function drawLine(x1, y1, x2, y2) {
   context.beginPath()
   context.moveTo(x1, y1)
   context.lineTo(x2, y2)
-  context.stroke()     // 画直线不能用fill()
+  context.stroke()   
   context.closePath()
   context.lineWidth = lineWidth
 }
