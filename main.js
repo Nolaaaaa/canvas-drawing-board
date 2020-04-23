@@ -60,7 +60,7 @@ change.onchange = function(){
 };
 
 // 画笔的粗细 
-var lineWidth;
+var lineWidth
 var brushList = [thin, thin2, thick, thick2]
 sizes.onclick = function (e) {
   brushList.forEach((value, index) => {
@@ -86,76 +86,70 @@ function addActive(addPart, removePart, className) {
 
 // 全屏幕画布函数
 function setCanvasSize() {
-  var pageWidth = document.documentElement.clientWidth;
-  var pageHeight = document.documentElement.clientHeight;
+  var pageWidth = document.documentElement.clientWidth
+  var pageHeight = document.documentElement.clientHeight
   canvas.width = pageWidth;
   canvas.height = pageHeight
 }
 
 // 监听触摸事件的函数
+var canDraw = true
+var lastPoint = { x: undefined, y: undefined }
 function lisenToTouch(canvas) {
-  var lastPoint = { x: undefined, y: undefined }
-  var usingBrush = false
   canvas.ontouchstart = function (e) {
     var x = e.touches[0].clientX   
     var y = e.touches[0].clientY
-    if (usingEraser) {
-      context.clearRect(x - 10, y - 10, 20, 20)
-    } else {
-      usingBrush = true
-      lastPoint = { "x": x, "y": y }
-    }
+    onDown(x, y)
   }
   canvas.ontouchmove = function (e) {
     var x = e.touches[0].clientX
     var y = e.touches[0].clientY
-    if (usingEraser) {
-      context.clearRect(x - 10, y - 10, 20, 20)
-    } else {
-      if (usingBrush) {
-        var newPoint = { "x": x, "y": y }
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
-      }
-    }
+    onMove(x, y)
   }
   canvas.ontouchup = function () {
-    usingBrush = false
-    usingEraser = false
+    onUp()
   }
 }
 
 // 监听鼠标事件的函数
 function lisenToMouse(canvas) {
-  var lastPoint = { x: undefined, y: undefined }
-  var usingBrush = false
   canvas.onmousedown = function (e) {
     var x = e.clientX
     var y = e.clientY
-    if (usingEraser) {
-      context.clearRect(x - 10, y - 10, 20, 20)
-    } else {
-      usingBrush = true
-      lastPoint = { "x": x, "y": y }
-    }
+    onDown(x, y)
   }
   canvas.onmousemove = function (e) {
     var x = e.clientX
     var y = e.clientY
-    if (usingEraser) {
-      context.clearRect(x - 10, y - 10, 20, 20)
-    } else {
-      if (usingBrush) {
-        var newPoint = { "x": x, "y": y }
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
-      }
-    }
+    onMove(x, y)
   }
   canvas.onmouseup = function () {
-    usingBrush = false
-    usingEraser = false
+    onUp()
   }
+}
+// 触摸/点击画板
+function onDown(x, y) {
+  canDraw = true
+  if (usingEraser) {
+    context.clearRect(x - 10, y - 10, 20, 20)
+  } else {
+    lastPoint = { "x": x, "y": y }
+  }
+}
+// 画板上移动
+function onMove(x, y) {
+  if(!canDraw) return
+  if (usingEraser) {
+    context.clearRect(x - 10, y - 10, 20, 20)
+  } else {
+    var newPoint = { "x": x, "y": y }
+    drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+    lastPoint = newPoint
+  }
+}
+// 离开画板
+function onUp() {
+  canDraw = false
 }
 
 // 画一个圆

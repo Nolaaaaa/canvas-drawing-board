@@ -8,10 +8,10 @@ body { overflow: hidden; position: fixed; top: 0; left: 0;}
 .icon.activesvg { fill:green;  transform: scale(1.4);}
 
 .actions { position: fixed; top:0; left:0; padding:20px; }
-.actions svg { width: 1.5em ; height: 1.5em ; transition: all 0.3s ; margin: 4px; }
+.actions svg { width: 1.5em ; height: 1.5em ; transition: all 0.3s ; margin: 4px; background: red;}
 
 .colors { position: fixed; top: 70px; left: 10px;}
-.colors ol li { width: 20px; height: 20px; margin: 12px 6px; border-radius: 50%; }
+.colors ol li { width: 20px; height: 20px; margin: 12px 6px; border-radius: 50%; border: 1px solid rgb(197, 196, 196); }
 .colors ol li#red { background: red; }
 .colors ol li#yellow { background: yellow; }
 .colors ol li#green { background: green; }
