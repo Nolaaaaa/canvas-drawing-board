@@ -1,7 +1,7 @@
 // 1  获取画布
-var canvasname = document.getElementById("canvas")
-if (canvasname.getContext) {
-  var context = canvasname.getContext('2d')
+var canvas = document.getElementById("canvas")
+if (canvas.getContext) {
+  var context = canvas.getContext('2d')
 }
 
 // 2  全屏幕画布，ps：最好不要用css，会出bug 
@@ -93,7 +93,7 @@ function setCanvasSize() {
 }
 
 // 监听触摸事件的函数
-var canDraw = true
+var canDraw = false
 var lastPoint = { x: undefined, y: undefined }
 function lisenToTouch(canvas) {
   canvas.ontouchstart = function (e) {
